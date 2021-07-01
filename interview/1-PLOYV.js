@@ -95,7 +95,7 @@ function getMaximumCountOfChar(str)
 		}
 	}
 
-	const res = Object.entries(data).sort((a, b) => b[1] - a[1]).reverse()
+	const res = Object.entries(data).sort((a, b) => b[1] - a[1])
 
 	return res[0][0]
 }
