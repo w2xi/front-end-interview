@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Throttle - 节流</title>
+</head>
+<body>
+	<input id="input" />
+	<div id="content"></div>
+
+	<script>
+		/**
+		 * 节流
+		 *
+		 */
+
+		// 在这里 1500 毫秒执行一次 回调
+
+		const throttle = function (fn, delay = 100){
+			let timer = null
+	
+			return function(args){
+				if ( !timer ){
+					timer = setTimeout(() => {
+						timer = null 
+						fn.call(this, args)
+					}, delay)
+				}
+			}
+		}
+
+		input.addEventListener('input', throttle((e) => {
+			content.innerText = e.target.value
+		}, 1500))
+	</script>
+</body>
+</html>

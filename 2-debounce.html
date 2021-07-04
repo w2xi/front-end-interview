@@ -10,11 +10,19 @@
 	<div id="content"></div>
 
 	<script>
-		// 防抖
+		/**
+		 * 防抖
+		 *
+		 */
+
+		// 在这里给 input 绑定 oninput 事件
+		// 在用户停止输入后 延迟delay 毫秒后执行回调
+
 		const debounce = function (fn, delay = 1000) {
 		  let time = null
 		  return function (...args) {
-		  	// pointer input element
+		  	console.log(args)
+		  	// point to input element
 		    let that = this
 		    time && clearTimeout(time)
 		    time = setTimeout(function () {
