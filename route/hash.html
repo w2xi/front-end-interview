@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hash Route</title>
+</head>
+<body>
+	<!-- 定义路由 -->
+	<ul>
+		<li><a href="#/home">Home</a></li>
+		<li><a href="#/about">About</a></li>
+	</ul>
+
+	<!-- 渲染路由匹配的模板 -->
+	<div id="view"></div>
+
+	<script>
+		// hash
+
+		// 页面加载完不会触发 hashchange 事件，这里需要主动触发
+		window.addEventListener('DOMContentLoaded', hashHandler)
+
+		window.addEventListener('hashchange', hashHandler)
+
+		const view = document.querySelector('#view')
+
+
+		function hashHandler()
+		{
+			const hash = location.hash.slice(1)
+
+			switch (hash)
+			{
+				case '/':
+				case '/home':
+					view.innerHTML = 'Home'
+					break;
+				case '/about':
+					view.innerHTML = 'About'
+					break;
+				default:
+					view.innerHTML = '404 Not Found'
+					break;
+			}
+		}
+	</script>
+</body>
+</html>
