@@ -18,16 +18,17 @@ Array.prototype.bubble_sort = function (){
 	return this
 }
 
-// 时间复杂度分析：
-// 平均时间复杂度：O(n^2)
-// 最坏时间复杂度：O(n^2)
-// 最优时间复杂度：O(n)
 
 const a = [1, -1, 10, 0]
 
 a.bubble_sort()
 
 console.log(a)
+
+// 时间复杂度分析：
+// 平均时间复杂度：O(n^2)
+// 最坏时间复杂度：O(n^2)
+// 最优时间复杂度：O(n)
 
 // wikipedia:
 // https://zh.wikipedia.org/wiki/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F
