@@ -15,8 +15,6 @@ Array.prototype.insertion_sort = function (){
 	return this
 }
 
-
-
 const a = [1, 0, -1, 10]
 
 a.insertion_sort()
