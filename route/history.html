@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>History Route</title>
+</head>
+<body>
+	<!-- 定义路由 -->
+	<ul id="route">
+		<li><a href="/home">Home</a></li>
+		<li><a href="/about">About</a></li>
+	</ul>
+
+	<!-- 渲染路由匹配的模板 -->
+	<div id="view"></div>
+
+	<script>
+		// history 
+
+		window.addEventListener('DOMContentLoaded', () => {
+			historyHandler()
+			// 事件委托
+			const routeEle = document.querySelector('#route')
+
+			routeEle.addEventListener('click', (event) => {
+				console.log(event.target)
+
+				event.preventDefault()
+				history.pushState(null, '', event.target.href)
+
+				historyHandler()
+			})
+
+			// 拦截 <a> 标签点击事件默认行为， 点击时使用 pushState 修改 URL并更新手动 UI，从而实现点击链接更新 URL 和 UI 的效果。
+		  // var linkList = document.querySelectorAll('a[href]')
+		  // linkList.forEach(el => el.addEventListener('click', function (e) {
+		  //   e.preventDefault()
+		  //   history.pushState(null, '', el.getAttribute('href'))
+		  //   historyHandler()
+		  // }))
+		})
+
+		window.addEventListener('popstate', historyHandler)
+
+
+		function historyHandler()
+		{
+			switch(location.pathname)
+			{
+				case '/home':
+					view.innerHTML = 'Home'
+					break;
+				case '/about':
+					view.innerHTML = 'About'
+					break;
+				default:
+					view.innerHTML = '404 Not Found'
+					break;	
+			}
+		}
+	</script>
+</body>
+</html>

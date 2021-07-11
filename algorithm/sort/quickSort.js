@@ -27,7 +27,9 @@ Array.prototype.quick_sort = function (){
 
 const a = [0, -1, 1, 100, 10]
 
-console.log(a.quick_sort())
+a.quick_sort()
+
+console.log(a)
 
 // 时间复杂度分析：
 // 平均时间复杂度：O(nlogn)
